@@ -19,6 +19,7 @@ import {
 } from 'react-native';
 import SafeAreaAndriod from './components/SafeAreaAndriod';
 import HomeScreen from "./screens/HomeScreen";
+import CustomHeader from "./components/CustomHeader";
 
 
 const Stack = createStackNavigator();
@@ -29,10 +30,17 @@ function App(): JSX.Element {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home"
       screenOptions={{
-        // cardStyle: { backgroundColor: "#16032E" }  // Replace '#FFFFFF' with your desired color
+        cardStyle: { backgroundColor: "#16032EF0" }  // Replace '#FFFFFF' with your desired color
       }}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} 
+          options={
+            {
+              title:"Welcome to WeGreat",
+              header: () => <CustomHeader />
+            }
+          }
+        />
         {/* <Stack.Screen name="UserSignIn" component={UserSignInScreen} />
         <Stack.Screen name="MerchantSignIn" component={MerchantSignInScreen} />
         <Stack.Screen name="UserRegister" component={UserRegisterScreen} />
